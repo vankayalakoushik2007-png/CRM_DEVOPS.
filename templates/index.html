@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM - Version 2</title>
+    <style>
+        body { font-family: Arial; margin: 35px; }
+        input { padding: 8px; margin: 5px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #999; padding: 10px; text-align: left; }
+        th { background: #dce8f7; }
+    </style>
+</head>
+<body>
+    <h1>CRM - Version 2</h1>
+    <h2>Add Customer</h2>
+
+    <form method="POST">
+        <input name="name" placeholder="Name" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="phone" placeholder="Phone" required>
+        <button type="submit">Save Customer</button>
+    </form>
+
+    <h2>View Customers</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        {% for c in customers %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.email }}</td>
+            <td>{{ c.phone }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No customers found</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
